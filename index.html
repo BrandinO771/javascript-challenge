@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .button
+         {
+          border: none;
+          color: white;
+          padding: 15px 35px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer;
+          }
+        #multi-on         
+        {   
+          background-color: #4CAF50; 
+          border: none;
+          color: white;
+          padding: 15px 36px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer;       
+          }
+        #multi-off        
+        {   
+          background-color: rgb(175, 76, 137);
+          border: none;
+          color: white;
+          padding: 15px 36px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer; 
+        }      
+   
+        #filter-all-data
+        {   
+          background-color: rgb(94, 86, 152);
+          border: none;
+          color: white;
+          padding: 15px 36px;
+          text-align: center;
+          font-size: 14px;
+          cursor: pointer; 
+        }     
+        #filter-by-date
+        {   
+          background-color: rgb(132, 132, 175);
+          border: none;
+          color: white;
+          padding: 15px 36px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer; 
+        } 
+        #filter-multi
+        {   
+          background-color: rgb(76, 76, 175);
+          border: none;
+          color: white;
+          padding: 2px 36px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer; 
+        }      
+        #reset-multi
+        {   
+          background-color: rgb(33, 33, 42);
+          border: none;
+          color: white;
+          padding: 2px 40px;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer; 
+        }   
+        #filter-multi:hover {background-color: rgb(46, 46, 106);  }
+        #filter-all-data:hover{ background-color: rgb(74, 68, 118);}
+        #filter-by-date:hover    {   color: rgb(0, 0, 0); }     
+
+        #reset-multi:hover    {   color: rgb(255, 0, 43);}     
+        #multi-off:hover      {   background-color: rgb(111, 20, 76);  color: rgb(241, 44, 199);}       
+        #multi-on:hover       {   background-color: rgb(28, 144, 28);   color: rgb(100, 255, 232);} 
+        /* #multi-on:hover #on_def {visibility: hidden;} */
+        #on_def 
+        {
+          text-align: center;
+         font-size : 11px; 
+         font-style: italic;
+         color: black;
+         /* padding: 15px 15px; */
+         /* position: auto; */
+         /* content: center;  */
+        }
+
+</style>
+
+
+
+  <meta charset="utf-8">
+  <title>UFO Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="tooltip">Hover over me
+        <span class="tooltiptext">Tooltip text</span>
+      </div>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">UFO Sightings
+            <img class="nav-ufo" src="static/images/ufo.svg">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero text-center">
+      <h1>UFO Sightings</h1>
+      <p>The Truth is Out There</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+                <button id="filter-all-data"  type="button" >Display ALL Data </button>
+              <br>
+              <br>
+     
+              <div class="panel-heading">Filtered Search By: </div>
+
+               <!-- THIS IS THE DROP DOWN BUTTON FOR CITY -->
+              <select id = "city_drops">
+                <option >Select City</option>
+              </select>
+      
+              <select id = "state_drops">
+                  <option >Select State</option>
+                </select>
+        
+                <select id = "shape_drops">
+                    <option >Select Shape</option>
+                  </select>
+
+
+
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="date">Enter a Date</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="1/1/2010">
+                        <button id="filter-by-date"       type="button" >Click to Process Date</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div id ="on_def">CLICK:  Multi-Filter Button - [ ON ]</div> 
+                  <div id ="on_def">for Advanced Search Query - MAX 3 filters </div> 
+                  <button type="button" id= multi-on onclick="alert('You Have Activated Multi-Filter Mode')" >Multi-Filter [ON ] </button>
+             
+
+                  <select id = "filter1_drop">
+                      <option >1st Filter Assign</option>
+
+                  </select>
+
+                  <select id = "filter2_drop">
+                      <option >2nd Filter Assign</option>
+                  </select>
+
+                  <select id = "filter3_drop">
+                      <option >3rd Filter Assign</option>
+                  </select>
+
+
+
+
+                  <button type="button" id= multi-off onclick="alert('You Have DE-Activated Multi-Filter Mode')">Multi-Filter [OFF] </button>  
+                  <div id ="on_def">CLICK:  Multi-Filter Button - [OFF] </div>
+                  <div id ="on_def">to display data based on ONE filter</div>           
+                  <button id="filter-multi"    type="button">Process Multi-Filter Query</button>
+                  <button id="reset-multi"     type="button">Reset  Multi-Filters</button>
+
+            
+      
+                  <br> 
+
+                </form>
+              </div>
+            </div>
+          </aside>
+   
+        </div>
+
+
+        <div class="col-md-10">
+          <div id="table-area" class="">
+   
+
+              <par>The Data will appear below here  </par> 
+
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <span class="bottom">UFO Sightings</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
